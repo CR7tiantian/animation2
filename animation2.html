@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css轮播</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	#content {
+		position: relative;
+		width: 400px;
+		height: 300px;
+		overflow: hidden;
+	}
+	#img {
+		width: 400px;
+		height: 300px;
+		list-style: none; 
+		padding: 0px;
+		margin: 0px;
+		animation:slide 5s infinite;
+		position: absolute;
+	}
+	@keyframes slide {
+		0% {top: 0px}
+		100% {top: -300px}
+		
+	}
+	@keyframes slide1 {
+		to {top: 0px}
+	}
+	@keyframes slide2 {
+		to {top: -300px}
+	}
+	#index {
+		position: absolute;
+		top: 270px;
+		left: 350px;
+	}
+	.index {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		text-align: center;
+		text-decoration: none;
+	}
+	#index_1 {
+		background-color: aqua;
+		animation: index_1 5s infinite;
+	} 
+	#index_2 {
+		background-color: black;
+		animation: index_2 5s infinite;
+	}
+	@keyframes index_1 {
+		0% {background-color: aqua;}
+		100% {background-color: black;}
+	}
+	@keyframes index_2 {
+		0% {background-color: black;}
+		100% {background-color: aqua;}
+	}
+	@keyframes color1 {
+		to {background-color: aqua;}
+	}
+	@keyframes color2 {
+		to {background-color: aqua;}
+	}
+	</style>
+</head>
+<body>
+<div id="content">
+	<ul id="img">
+		<li><image id="img1" src="img1.jpg"></li>	
+		<li><image id="img2" src="img2.jpg"></li>
+	</ul>
+	<div id="index">
+		<a href="#" id="index_1" class="index">1</a>
+		<a href="#" id="index_2" class="index">2</a>
+	</div>
+</div>
+<script type="text/javascript">
+	(function() {
+		var index_1 = document.getElementById("index_1");
+		var index_2 = document.getElementById("index_2");
+		var img = document.getElementById("img");
+		index_1.onmouseover = function() {
+			img.style.animation = "";
+			img.style.animation = "slide1 3s";
+			
+			
+		};
+		index_1.onmouseout = function() {
+			img.style.animation = "slide 5s infinite";
+			index_1.style.animation = "index_1 5s infinite";
+		};
+		index_2.onmouseover = function() {
+		
+			img.style.animation = "";
+			img.style.animation = "slide2 0.1s";
+			img.style.animationFillMode = "forwards";
+			
+		};
+		index_2.onmouseout = function() {
+			img.style.animation = "slide 5s infinite";
+			index_2.style.animation = "index_2 5s infinite";
+		}
+	})()
+</script>
+</body>
+</html>
